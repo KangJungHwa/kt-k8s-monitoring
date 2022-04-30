@@ -1,4 +1,4 @@
-package com.kt.monitoring.model.entity.pods;
+package com.kt.monitoring.model.pods;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;

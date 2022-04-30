@@ -1,8 +1,7 @@
-package com.kt.monitoring.model.entity.pods;
+package com.kt.monitoring.model.nodes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.kt.monitoring.model.entity.nodes.Labels;
 import lombok.*;
 
 @Getter
@@ -14,10 +13,6 @@ import lombok.*;
 public class Metadata {
     @JsonProperty("name")
     String name;
-
-    @JsonProperty("namespace")
-    String nameSpace;
-
     @JsonProperty("labels")
     Labels labels;
 }

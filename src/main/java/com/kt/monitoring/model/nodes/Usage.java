@@ -1,4 +1,4 @@
-package com.kt.monitoring.model.entity.nodes;
+package com.kt.monitoring.model.nodes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;

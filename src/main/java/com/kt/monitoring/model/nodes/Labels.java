@@ -1,4 +1,4 @@
-package com.kt.monitoring.model.entity.pods;
+package com.kt.monitoring.model.nodes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -10,10 +10,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Container {
-    @JsonProperty("name")
-    String containerName;
-
-    @JsonProperty("usage")
-    Usage usage;
+public class Labels {
+    @JsonProperty("node-role.kubernetes.io/master")
+    String nodeRole;
 }

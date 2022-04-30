@@ -1,8 +1,10 @@
-package com.kt.monitoring.model.entity.nodes;
+package com.kt.monitoring.model.pods;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -10,11 +12,11 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Item {
-    @JsonProperty("metadata")
-    Metadata metadata;
-    @JsonProperty("timestamp")
-    String timestamp;
-    @JsonProperty("usage")
-    Usage usage;
+public class Pods {
+    @JsonProperty("kind")
+    String kind;
+    @JsonProperty("apiVersion")
+    String apiVersion;
+    @JsonProperty("items")
+    List<Item> items;
 }

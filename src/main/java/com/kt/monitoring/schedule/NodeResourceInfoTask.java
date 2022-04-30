@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kt.monitoring.controller.RestTemplateController;
 import com.kt.monitoring.model.entity.NodeEntity;
-import com.kt.monitoring.model.entity.nodes.Nodes;
+import com.kt.monitoring.model.nodes.Nodes;
 import com.kt.monitoring.repository.NodeRepository;
 import com.kt.monitoring.util.TimeUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -72,7 +72,7 @@ public class NodeResourceInfoTask extends RestTemplateController {
             String cpuUnit=null;
             if(cpu.indexOf("m")>0) {
                 cpu = cpu.replaceAll("m", "");
-                cpuUnit="mili";
+                cpuUnit="milli";
             }
             if(cpu.indexOf("n")>0) {
                 cpu = cpu.replaceAll("n", "");

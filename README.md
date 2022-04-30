@@ -19,6 +19,12 @@ SET GLOBAL time_zone = 'Asia/Seoul';
 SHOW SESSION VARIABLES LIKE 'time_zone';
 ```
 
+타입존 확인
+```$xslt
+select @@global.time_zone, @@session.time_zone
+```
+
+
 command line 실행 명령
 ```$xslt
 nohup java -jar 'kt-k8s-monitoring-1.0.0-SNAPSHOT.jar' & > /dev/null

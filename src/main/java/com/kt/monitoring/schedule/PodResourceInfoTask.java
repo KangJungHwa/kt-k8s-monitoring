@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kt.monitoring.controller.RestTemplateController;
 import com.kt.monitoring.model.entity.PodEntity;
-import com.kt.monitoring.model.entity.pods.Pods;
+import com.kt.monitoring.model.pods.Pods;
 import com.kt.monitoring.repository.PodRepository;
 import com.kt.monitoring.util.TimeUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -60,7 +60,7 @@ public class PodResourceInfoTask extends RestTemplateController {
                 String cpuUnit=null;
                 if(cpu.indexOf("m")>0) {
                     cpu = cpu.replaceAll("m", "");
-                    cpuUnit="mili";
+                    cpuUnit="milli";
                 }
                 if(cpu.indexOf("u")>0) {
                     cpu = cpu.replaceAll("u", "");

@@ -1,4 +1,4 @@
-package com.kt.monitoring.model.entity.nodes;
+package com.kt.monitoring.model.pods;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,12 +12,9 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Nodes {
-    @JsonProperty("kind")
-    String kind;
-    @JsonProperty("apiVersion")
-    String apiVersion;
-    @JsonProperty("items")
-    List<Item> items;
-
+public class Item {
+    @JsonProperty("metadata")
+    Metadata metadata;
+    @JsonProperty("containers")
+    List<Container> containers;
 }
