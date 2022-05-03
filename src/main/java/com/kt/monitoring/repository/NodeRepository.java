@@ -16,7 +16,7 @@ public interface NodeRepository extends CrudRepository<NodeEntity, Long> {
 
     @Transactional
     @Modifying
-    @Query(value= "delete FROM monitoring.node_resource_usage where create_ts < date_add(now(), interval -30 minute)",
+    @Query(value= "delete FROM nlu.node_resource_usage where create_ts < date_add(now(), interval -30 minute)",
             nativeQuery = true)
     void deleteNodeTableNative();
 }

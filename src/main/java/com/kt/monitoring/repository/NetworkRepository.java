@@ -16,7 +16,7 @@ public interface NetworkRepository extends CrudRepository<NetworkEntity, Long> {
 
     @Transactional
     @Modifying
-    @Query(value= "delete from monitoring.network_status where create_ts < date_add(now(), interval -30 minute)",
+    @Query(value= "delete from nlu.network_status where create_ts < date_add(now(), interval -30 minute)",
             nativeQuery = true)
     void deleteNetworkTableNative();
 }
