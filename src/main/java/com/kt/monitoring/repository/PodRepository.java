@@ -12,7 +12,6 @@ import java.util.Optional;
 public interface PodRepository extends CrudRepository<PodEntity, Long> {
     Optional<PodEntity> findByPodname(String desc);
 
-
     @Transactional
     @Modifying
     @Query(value= "delete FROM nlu.pod_resource_usage where create_ts < date_add(now(), interval -30 minute)",
