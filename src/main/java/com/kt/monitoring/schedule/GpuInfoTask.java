@@ -21,6 +21,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.sql.Timestamp;
@@ -84,7 +85,8 @@ public class GpuInfoTask {
             }
         });
 
-        Document document     =  builder.parse(new InputSource(new StringReader(responseStr)));
+        //Document document =  builder.parse(new InputSource(new StringReader(responseStr)));
+        Document document = builder.parse(new InputSource(new ByteArrayInputStream(responseStr.getBytes("UTF-8"))));
         document.getDocumentElement().normalize();
 
         NodeList memoryList = document.getElementsByTagName("fb_memory_usage");
