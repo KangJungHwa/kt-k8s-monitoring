@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "node_resource_usage")
+@Entity(name = "monitoring_node_resource_usage")
 @IdClass(NodeEntityPK.class)
 public class NodeEntity implements Serializable {
 

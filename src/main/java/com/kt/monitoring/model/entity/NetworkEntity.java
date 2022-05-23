@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "network_status")
+@Entity(name = "monitoring_network_status")
 @IdClass(NetworkEntityPK.class)
 public class NetworkEntity implements Serializable {
 

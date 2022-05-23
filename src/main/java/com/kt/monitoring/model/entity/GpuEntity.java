@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "gpu_status")
+@Entity(name = "monitoring_gpu_status")
 @IdClass(GpuEntityPK.class)
 public class GpuEntity implements Serializable {
 

@@ -16,7 +16,7 @@ public interface GpuRepository extends CrudRepository<GpuEntity, Long> {
 
     @Transactional
     @Modifying
-    @Query(value= "delete from nlu.gpu_status where create_ts < date_add(now(), interval -30 minute)", nativeQuery = true)
-    void deleteGpuTableNative();
-}
+    @Query(value= "delete from aicc_nlu_framework.monitoring_gpu_status where create_ts < date_add(now(), interval -30 minute)", nativeQuery = true)
+        void deleteGpuTableNative();
+        }
 

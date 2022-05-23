@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@Entity(name = "pod_resource_usage")
+@Entity(name = "monitoring_pod_resource_usage")
 @IdClass(PodEntityPK.class)
 public class PodEntity  implements Serializable {
     @Id

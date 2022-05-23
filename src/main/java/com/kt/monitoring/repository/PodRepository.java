@@ -14,7 +14,7 @@ public interface PodRepository extends CrudRepository<PodEntity, Long> {
 
     @Transactional
     @Modifying
-    @Query(value= "delete FROM nlu.pod_resource_usage where create_ts < date_add(now(), interval -30 minute)",
+    @Query(value= "delete FROM aicc_nlu_framework.monitoring_pod_resource_usage where create_ts < date_add(now(), interval -30 minute)",
             nativeQuery = true)
     void deletePodTableNative();
 }
