@@ -86,6 +86,8 @@ public class GpuInfoTask {
         });
 
         //Document document =  builder.parse(new InputSource(new StringReader(responseStr)));
+        log.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        log.info("~~~~~~~~~~~~~~~~~~~~responseStr~~~~~~~~~~~~~~~~~~~~~~~~"+responseStr);
         Document document = builder.parse(new InputSource(new ByteArrayInputStream(responseStr.getBytes("UTF-8"))));
         document.getDocumentElement().normalize();
 
