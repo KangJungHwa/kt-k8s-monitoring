@@ -50,7 +50,7 @@ public class DiskUsageTask {
            String responseStr=  SSHUtils.getSshResult(username,
                     EncryptionUtils.getDecodingStr(password),
                     nodes.get(nodename),
-                    "df -t ext4 | grep -vE '^Filesystem|tmpfs|overlay|192.|shm' | awk '{ print $1 \" \" $2 \" \" $3 \" \" $4 \" \" $5}'",
+                    "df -t ext4 | grep -vE '^Filesystem' |  awk '{ print $1 \" \" $2 \" \" $3 \" \" $4 \" \" $5}'",
                      ports.get(nodename));
             saveResult(nodename.toString(), responseStr,createTimestamp);
 
