@@ -78,7 +78,7 @@ public class NodeResourceInfoTask extends RestTemplateController {
                 cpu = cpu.replaceAll("n", "");
                 cpuUnit="nano";
             }
-            if(cpu.indexOf("n")>0) {
+            if(cpu.indexOf("u")>0) {
                 cpu = cpu.replaceAll("u", "");
                 cpuUnit="micro";
             }
