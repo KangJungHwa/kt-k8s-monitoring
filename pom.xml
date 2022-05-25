@@ -159,7 +159,11 @@
             <artifactId>mariadb-java-client</artifactId>
             <version>3.0.3</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.bgee.log4jdbc-log4j2</groupId>
+            <artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+            <version>1.16</version>
+        </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
