@@ -1,9 +1,6 @@
 package com.kt.monitoring.schedule;
 
-import com.kt.monitoring.repository.GpuRepository;
-import com.kt.monitoring.repository.NetworkRepository;
-import com.kt.monitoring.repository.NodeRepository;
-import com.kt.monitoring.repository.PodRepository;
+import com.kt.monitoring.repository.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -25,6 +22,9 @@ public class TableDeleteTask {
     @Autowired
     GpuRepository gpuRepository;
 
+    @Autowired
+    DiskRepository diskRepository;
+
     @Scheduled(cron="0 0/30 * * * *")
     public void deletePodTable()  throws Exception {
         podRepository.deletePodTableNative();
@@ -40,6 +40,11 @@ public class TableDeleteTask {
     @Scheduled(cron="0 0/30 * * * *")
     public void deleteGpuTable()  throws Exception {
         gpuRepository.deleteGpuTableNative();
+        //gpuRepository.selectGpuTableNative();
+    }
+    @Scheduled(cron="0 0/30 * * * *")
+    public void deleteDiskTable()  throws Exception {
+        diskRepository.deleteDiskTableNative();
         //gpuRepository.selectGpuTableNative();
     }
 }

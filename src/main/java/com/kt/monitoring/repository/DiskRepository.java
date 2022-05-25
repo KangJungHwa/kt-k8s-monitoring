@@ -18,6 +18,6 @@ public interface DiskRepository extends CrudRepository<DiskEntity, Long> {
     @Transactional
     @Modifying
     @Query(value= "delete from aicc_nlu_framework.monitoring_disk_usage where create_ts < date_add(now(), interval -30 minute)", nativeQuery = true)
-        void deleteGpuTableNative();
+        void deleteDiskTableNative();
 }
 
