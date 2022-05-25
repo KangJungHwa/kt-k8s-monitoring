@@ -44,7 +44,7 @@ spring:
     initialization-mode: always
     hikari:
       connection-test-query: SELECT 1
-      maximum-pool-size: 10
+      maximum-pool-size: 15
       max-lifetime: 1800000
       idle-timeout: 600000
 
