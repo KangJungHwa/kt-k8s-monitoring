@@ -103,15 +103,18 @@ public class DiskUsageTask {
             }
         }
         String nodename=null;
+        String ipAddr=null;
         if(fileSystem.startsWith("192")){
             nodename=fileSystem;
+            ipAddr = nodename.substring(0, nodename.indexOf(":"));
         }else{
             nodename=paramNodename;
+            ipAddr=nodes.get(nodename);
         }
         DiskEntity diskEntity = DiskEntity.builder()
                 .createDate(createTimestamp)
                 .nodename(nodename)
-                .ipAddress(nodes.get(nodename))
+                .ipAddress(ipAddr)
                 .fileSystem(fileSystem)
                 .totalBytes(totalBytes)
                 .usedBytes(usedBytes)
