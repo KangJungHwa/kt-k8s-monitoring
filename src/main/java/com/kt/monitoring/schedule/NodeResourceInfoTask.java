@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ import java.util.Map;
 
 @Slf4j
 @Component
+@ConfigurationProperties(prefix = "k8s")
 public class NodeResourceInfoTask extends RestTemplateController {
     @Autowired
     @Qualifier("mapper")
@@ -42,9 +44,12 @@ public class NodeResourceInfoTask extends RestTemplateController {
     @Qualifier("sslRestTemplate")
     RestTemplate restTemplate;
 
+    private Map<String, String> nodes;
 
-    private Map<String, String> gpunodes;
-    private Map<String, Integer> gpuports;
+    public void setNodes(final Map<String, String> nodes) {
+        this.nodes = nodes;
+    }
+
     //1분마다 실행 kube-apiserver 호출
     //http://172.30.1.81:30003/k8s-apis/metrics.k8s.io/v1beta1/nodes
 
@@ -53,21 +58,21 @@ public class NodeResourceInfoTask extends RestTemplateController {
         HttpEntity<String> entity = emptyGetRequestEntity(token);
         String url = k8sApisUrl+"/metrics.k8s.io/v1beta1/nodes";
         ResponseEntity<String> responseEntity= restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-        Nodes nodes = mapper.readValue(responseEntity.getBody(), Nodes.class);
+        Nodes jsonNodes = mapper.readValue(responseEntity.getBody(), Nodes.class);
         List<NodeEntity> nodeUsageList =
                 new ArrayList<>();
         java.sql.Timestamp now = TimeUtil.getNow();
-        for(int i=0; i<nodes.getItems().size(); i++) {
+        for(int i=0; i<jsonNodes.getItems().size(); i++) {
 
             String nodeRole=null;
-            if (nodes.getItems().get(i).getMetadata().getName().indexOf("master") >0) {
+            if (jsonNodes.getItems().get(i).getMetadata().getName().indexOf("master") >0) {
                 nodeRole = "master";
             } else{
                 nodeRole = "worker";
             }
 
-            String cpu=nodes.getItems().get(i).getUsage().getCpu();
-            String memory=nodes.getItems().get(i).getUsage().getMemory();
+            String cpu=jsonNodes.getItems().get(i).getUsage().getCpu();
+            String memory=jsonNodes.getItems().get(i).getUsage().getMemory();
             String memoryUnit=null;
             String cpuUnit=null;
             if(cpu.indexOf("m")>0) {
@@ -95,7 +100,8 @@ public class NodeResourceInfoTask extends RestTemplateController {
                 memoryUnit = "Gi";
             }
             NodeEntity nodeEntity=NodeEntity.builder()
-                    .nodename(nodes.getItems().get(i).getMetadata().getName())
+                    .nodename(jsonNodes.getItems().get(i).getMetadata().getName())
+                    .ipAddress(nodes.get(jsonNodes.getItems().get(i).getMetadata().getName()))
                     .nodeRole(nodeRole)
                     .cpu(Long.valueOf(cpu))
                     .cpuUnit(cpuUnit)

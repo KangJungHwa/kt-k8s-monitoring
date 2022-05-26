@@ -24,12 +24,8 @@ public class NodeEntity implements Serializable {
     @Column(name = "node_name", columnDefinition = "VARCHAR(100)", nullable = true)
     private String nodename;
 
-//
-//    @Id
-//    @GeneratedValue(generator = "uuid2")
-//    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-//    @Column(columnDefinition = "BINARY(16)")
-//    private UUID id;
+    @Column(name = "ip_address", columnDefinition = "VARCHAR(100)", nullable = true)
+    private String ipAddress;
 
     /**
      * @CreationTimestamp를 키로 사용할 수 없다.

@@ -104,6 +104,7 @@ public class NodeNetworkPacketInfoTask  {
 
         }
         NetworkEntity networkEntity = NetworkEntity.builder()
+                .ipAddress(nodes.get(nodename))
                 .rxPackets(rxPackets)
                 .rxBytes(rxBytes)
                 .rxHumanBytes(rxHumanBytes)

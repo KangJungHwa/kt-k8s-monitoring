@@ -22,6 +22,10 @@ public class GpuEntity implements Serializable {
     @Id
     @Column(name = "node_name", columnDefinition = "VARCHAR(100)", nullable = true)
     private String nodename;
+
+    @Column(name = "ip_address", columnDefinition = "VARCHAR(100)", nullable = true)
+    private String ipAddress;
+
     /**
      * @CreationTimestamp를 키로 사용할 수 없다.
      * 생성일 (이 필드에는 값을 입력하지 않아도 Hibernate가 INSERT시 자동으로 기록)
@@ -30,6 +34,9 @@ public class GpuEntity implements Serializable {
     @Column(name = "create_ts")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp createDate;
+
+
+
 
     @Column(name = "memory_unit")
     String memoryUnit;

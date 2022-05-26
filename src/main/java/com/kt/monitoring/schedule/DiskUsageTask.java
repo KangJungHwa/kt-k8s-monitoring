@@ -111,6 +111,7 @@ public class DiskUsageTask {
         DiskEntity diskEntity = DiskEntity.builder()
                 .createDate(createTimestamp)
                 .nodename(nodename)
+                .ipAddress(nodes.get(nodename))
                 .fileSystem(fileSystem)
                 .totalBytes(totalBytes)
                 .usedBytes(usedBytes)

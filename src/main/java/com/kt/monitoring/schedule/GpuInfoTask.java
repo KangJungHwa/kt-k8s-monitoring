@@ -135,6 +135,7 @@ public class GpuInfoTask {
 
             GpuEntity gpuEntity = GpuEntity.builder()
                     .nodename(nodename)
+                    .ipAddress(gpunodes.get(nodename))
                     .createDate(createTimestamp)
                     .memoryUnit("MiB")
                     .fbMemoryTotal(Long.valueOf(total.replaceAll(" MiB","")))

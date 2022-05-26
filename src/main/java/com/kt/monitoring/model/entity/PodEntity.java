@@ -23,6 +23,7 @@ public class PodEntity  implements Serializable {
     @Column(name = "pod_name", columnDefinition = "VARCHAR(100)", nullable = true)
     private String podname;
 
+
     @Id
     @Column(name = "container_name", columnDefinition = "VARCHAR(100)", nullable = true)
     String containerName;
