@@ -16,7 +16,6 @@ pipeline {
         //sh './mvnw -s ./settings.xml -Dmaven.test.skip clean package'
         sh 'ls -alF target'
         //sh "docker login -u ${REGISTRY_CREDS_USR} -p ${REGISTRY_CREDS_PSW} ${REGISTRY}"
-        sh('docker login -u $REGISTRY_CREDS_USR -p $REGISTRY_CREDS_PSW $REGISTRY')
         script {
           def BUILD_VERSIONS = ["${env.BUILD_NUMBER}", "latest"]
           BUILD_VERSIONS.each { BUILD_VERSION ->
