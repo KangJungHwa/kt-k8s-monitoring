@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.kt.aip</groupId>
-    <artifactId>kt-api-server</artifactId>
+    <groupId>com.kt.monitoring</groupId>
+    <artifactId>kt-monitoring-server</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>AI Platform API Server for KT</name>
-    <description>AI Platform API Server for KT</description>
+    <name>AI Platform Monitoring Server for KT</name>
+    <description>AI Platform Monitoring Server for KT</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -28,7 +28,7 @@
         <commons.io.version>1.3.2</commons.io.version>
         <junit.version>4.13.1</junit.version>
 
-        <start-class>com.kt.api.Starter</start-class>
+        <start-class>com.kt.monitoring.Starter</start-class>
     </properties>
 
     <build>
