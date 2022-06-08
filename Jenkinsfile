@@ -17,6 +17,7 @@ pipeline {
         sh 'ls -alF target'
         //sh "docker login -u ${REGISTRY_CREDS_USR} -p ${REGISTRY_CREDS_PSW} ${REGISTRY}"
         script {
+        sh "docker login -u ${REGISTRY_CREDS_USR} -p ${REGISTRY_CREDS_PSW} ${REGISTRY}"
           def BUILD_VERSIONS = ["${env.BUILD_NUMBER}", "latest"]
           BUILD_VERSIONS.each { BUILD_VERSION ->
             sh "docker build -t nlu_project/kt-k8s-monitoring:${BUILD_VERSION} ."
